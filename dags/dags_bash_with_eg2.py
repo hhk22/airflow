@@ -9,7 +9,7 @@ from airflow.operators.bash import BashOperator
 from dateutil import relativedelta
 
 with DAG(
-    dag_id="dags_bash_with_eg1",
+    dag_id="dags_bash_with_eg2",
     schedule="* * * * 6#2",
     start_date=pendulum.datetime(2023, 9, 1, tz="Asia/Seoul"),
     catchup=False
