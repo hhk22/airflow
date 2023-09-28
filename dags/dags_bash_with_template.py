@@ -4,7 +4,6 @@ import pendulum
 
 from airflow import DAG
 from airflow.operators.bash import BashOperator
-from common.common_func import regist2
 
 with DAG(
     dag_id="dags_bash_with_template",
@@ -21,7 +20,7 @@ with DAG(
 
     bash_t2 = BashOperator(
         task_id="bash_t2",
-        end = {
+        env = {
             'START_DATE': '{{data_interval_start | ds}}',
             'END_DATE': '{{data_interval_end | ds}}'
         },
