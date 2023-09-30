@@ -23,9 +23,9 @@ with DAG(
 
     bash_pull = BashOperator(
         task_id="bash_pull",
-        env={
-            "STATUS": "{{ti.xcom_pull(task_id='python_bash')['status']}}"
-            "DATA": "{{ti.xcom_pull(task_id='python_bash')['data']}}"
+        env= {
+            "STATUS": "{{ti.xcom_pull(task_id='python_bash')['status']}}",
+            "DATA": "{{ti.xcom_pull(task_id='python_bash')['data']}}",
             "OPTIONS_CNT": "{{ti.xcom_pull(task_id='python_bash')['options_cnt']}}"
         },
         bash_command="echo $STATUS && echo $DATA && echo $OPTIONS_CNT"
