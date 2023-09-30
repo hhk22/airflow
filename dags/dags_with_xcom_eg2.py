@@ -15,10 +15,11 @@ with DAG(
     def xcom_push1(**kwargs):
         return 'Success'
     
-    @task(task_id="python_xcom_push_task2")
+    @task(task_id="python_xcom_pull_task2")
     def xcom_pull_1(**kwargs):
         ti = kwargs['ti']
-        ti.xcom_push(task_ids="python_xcom_push_task1")
+        value = ti.xcom_pull(task_ids="python_xcom_push_task1")
+        print('pull1 task value >>', value)
     
     @task(task_id="python_xcom_pull_task")
     def xcom_pull_2(status, **kwargs):
