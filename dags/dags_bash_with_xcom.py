@@ -22,7 +22,7 @@ with DAG(
         task_id="dags_bash_with_pull",
         env={
                 "PUSHED": "{{ti.xcom_pull(key='bash_pushed')}}",
-                "RETURNED": "{{ti.xcom_pull(task_ids=dags_bash_with_xcom_push)}}"
+                "RETURNED": "{{ti.xcom_pull(task_ids='dags_bash_with_xcom_push')}}"
             },
         bash_command="echo $PUSHED && $RETURNED",
         do_xcom_push=False
