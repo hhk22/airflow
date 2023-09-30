@@ -30,4 +30,5 @@ with DAG(
         result2 = ti.xcom_pull(key="result2", task_ids='python_xcom_push_task1')
         print(result1, result2)
     
+    
     xcom_push1() >> xcom_push2() >> xcom_pull()
