@@ -2,6 +2,7 @@ import datetime
 import pendulum
 
 from airflow import DAG
+from airflow.decorators import task
 from airflow.operators.bash import BashOperator
 
 with DAG(
@@ -11,6 +12,7 @@ with DAG(
     catchup=False
 ) as dag:
     
+
     @task(task_id="python_bash")
     def python_push_xcom():
         return {
