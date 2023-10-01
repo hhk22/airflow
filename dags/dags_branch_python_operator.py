@@ -31,18 +31,18 @@ with DAG(
         print(kwargs['selected'])
     
     task_a = PythonOperator(
-        task_id="task_a",
+        task_id="task_aa",
         python_callable=common_func,
         op_kwargs={"selected":"A"}
     )
 
     task_b = PythonOperator(
-        task_id="task_b",
+        task_id="task_bb",
         python_callable=common_func,
         op_kwargs={"selected":"B"}
     )
     task_c = PythonOperator(
-        task_id="task_c",
+        task_id="task_cc",
         python_callable=common_func,
         op_kwargs={"selected":"C"}
     )
