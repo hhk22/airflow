@@ -30,21 +30,21 @@ with DAG(
     def common_func(**kwargs):
         print(kwargs['selected'])
     
-    task_a = PythonOperator(
-        task_id="task_aa",
+    task_aa = PythonOperator(
+        task_id="task_a",
         python_callable=common_func,
         op_kwargs={"selected":"A"}
     )
 
-    task_b = PythonOperator(
-        task_id="task_bb",
+    task_bb = PythonOperator(
+        task_id="task_b",
         python_callable=common_func,
         op_kwargs={"selected":"B"}
     )
-    task_c = PythonOperator(
-        task_id="task_cc",
+    task_cc = PythonOperator(
+        task_id="task_c",
         python_callable=common_func,
         op_kwargs={"selected":"C"}
     )
 
-    python_branch_task >> [task_a, task_b, task_c]
+    python_branch_task >> [task_aa, task_bb, task_cc]
