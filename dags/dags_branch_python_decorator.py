@@ -26,21 +26,21 @@ with DAG(
     def common_func(**kwargs):
         print(kwargs['selected'])
     
-    task_a = PythonOperator(
+    task_a1 = PythonOperator(
         task_id="task_a",
         python_callable=common_func,
         op_kwargs={"selected":"A"}
     )
 
-    task_b = PythonOperator(
+    task_b1 = PythonOperator(
         task_id="task_b",
         python_callable=common_func,
         op_kwargs={"selected":"B"}
     )
-    task_c = PythonOperator(
+    task_c1 = PythonOperator(
         task_id="task_c",
         python_callable=common_func,
         op_kwargs={"selected":"C"}
     )
 
-    select_random() >> [task_a, task_b, task_c]
+    select_random() >> [task_a1, task_b1, task_c1]
