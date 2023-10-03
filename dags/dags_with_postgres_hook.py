@@ -28,7 +28,7 @@ with DAG(
     insrt_postgres = PythonOperator(
         task_id='insrt_postgres',
         python_callable=insrt_postgres,
-        op_kwargs={'postgres_conn_id': 'conn-db-postgres'}
+        op_kwargs={'postgress_conn_id': 'conn-db-postgres'}
     )
         
     insrt_postgres
