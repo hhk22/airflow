@@ -6,7 +6,7 @@ from airflow.models import Variable
 
 
 with DAG(
-    dag_id='dags_sla_email_example',
+    dag_id='dags_timeout_with_example1',
     start_date=pendulum.datetime(2023, 5, 1, tz='Asia/Seoul'),
     schedule=None,
     catchup=False,
