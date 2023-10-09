@@ -37,3 +37,4 @@ with DAG(
         execution_delta=timedelta(hours=6),
         poke_interval=10        #10초
     )
+
