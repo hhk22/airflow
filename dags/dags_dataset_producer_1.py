@@ -17,4 +17,5 @@ with DAG(
         bash_command='echo "producer_1 수행 완료"'
     )
 
-    
+    bash_task
+
