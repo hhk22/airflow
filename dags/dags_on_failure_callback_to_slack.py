@@ -24,7 +24,7 @@ with DAG(
     )
 
     task_ext_1 = BashOperator(
-        trigger_rule="all_done"
+        trigger_rule="all_done",
         task_id="task_exit_1",
         bash_command="exit 1"
     )
