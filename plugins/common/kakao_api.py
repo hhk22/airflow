@@ -32,7 +32,7 @@ def _refresh_token_to_variable():
 def send_kakao_msg(talk_title: str, content: dict):
     try_cnt = 0
     while True:
-        tokens = eval(Variable.get('kakao_tokens'))
+        tokens = eval(Variable.get("kakao_tokens"))
         access_token = tokens.get('access_token')
         content_lst = []
         button_lst = []
@@ -56,7 +56,7 @@ def send_kakao_msg(talk_title: str, content: dict):
                     'mobile_web_url': ''
                 }
             })
-        
+
         list_data = {
             'object_type': 'list',
             'header_title': f'{talk_title}',
@@ -65,12 +65,14 @@ def send_kakao_msg(talk_title: str, content: dict):
                 'mobile_web_url': '',
                 'android_execution_params': 'main',
                 'ios_execution_params': 'main'
-            }
+            },
+            'contents': content_lst,
+            'buttons': button_lst
         }
 
-        send_url = 'https://kapi.kakao.com/v2/api/talk/memo/default/send'
+        send_url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
         headers = {
-            'Authroization': f'Bearer {access_token}'
+            "Authorization": f'Bearer {access_token}'
         }
 
         data = {'template_object': json.dumps(list_data)}
