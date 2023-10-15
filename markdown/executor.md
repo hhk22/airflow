@@ -16,4 +16,4 @@
 
 Celery 라는 비동기 큐 라이브러리를 이용. 
 
-![img](./images/celery_executor.gif)
+![img](https://github.com/hhk22/airflow/blob/master/images/celery_executor.gif)
