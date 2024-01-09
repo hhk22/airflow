@@ -14,8 +14,19 @@ with DAG(
     dagrun_timeout=datetime.timedelta(minutes=60)
 ) as dag:
     
-    report_task = FinanceReportOperator(
-        task_id="finance_stock_task"
-    )
+    def test():
+        print('success')
+        return 123
     
-    report_task
+    test_op = PythonOperator(
+        task_id="testtest",
+        python_callable=test
+    )
+
+    test_op
+    
+    # report_task = FinanceReportOperator(
+    #     task_id="finance_stock_task"
+    # )
+    
+    # report_task
