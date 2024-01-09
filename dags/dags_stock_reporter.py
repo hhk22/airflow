@@ -18,4 +18,4 @@ with DAG(
         task_id="finance_stock_task"
     )
     
-    report_task()
+    report_task
