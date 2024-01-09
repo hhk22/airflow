@@ -4,7 +4,7 @@ import pendulum
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-# from operators.stock_report_crawler import FinanceReportOperator
+from operators.stock_report_crawler import FinanceReportOperator
 
 with DAG(
     dag_id="dags_stock_reporter",
