@@ -3,7 +3,7 @@ import requests
 from requests import Response
 from urllib.parse import urlparse
 from airflow.models.baseoperator import BaseOperator
-from plugins.common.kakao_api import send_kakao_msg
+from common.kakao_api import send_kakao_msg
 
 class FinanceReportOperator(BaseOperator):
     def __init__(self, **kwargs):
