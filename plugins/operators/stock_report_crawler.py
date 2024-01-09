@@ -1,4 +1,4 @@
-# from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup, Tag
 import requests
 from requests import Response
 from urllib.parse import urlparse
@@ -15,7 +15,6 @@ class FinanceReportOperator(BaseOperator):
         self._get_report_list()
 
     def _get_report_list(self, date = ""):
-        return
         response: Response = requests.get(self.urlparse.geturl())
         bs = BeautifulSoup(response.text, "lxml")
         table_tag: Tag = bs.find("table")
