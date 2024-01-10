@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup, Tag
 import requests
 from requests import Response
 from urllib.parse import urlparse
+from datetime import datetime
 from airflow.models.baseoperator import BaseOperator
 from common.kakao_api import send_kakao_msg
 
@@ -12,7 +13,8 @@ class FinanceReportOperator(BaseOperator):
         self.urlparse = urlparse(self._url)
     
     def execute(self, context):
-        print(context)
+        date: datetime = context['data_interval_start']
+        print("now" + date.strftime("%Y.%m.%d"))
         # self._get_report_list()
 
     def _get_report_list(self, date = ""):
