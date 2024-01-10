@@ -57,10 +57,17 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
 
         buttons = [
             {
-                "title": "리포트 홈으로 이동",
+                "title": "웹으로 이동",
                 "link": {
-                    "web_url": url,
-                    "mobile_web_url": url
+                    "web_url": "http://www.daum.net",
+                    "mobile_web_url": "http://m.daum.net"
+                }
+            },
+            {
+                "title": "앱으로 이동",
+                "link": {
+                    "android_execution_params": "main",
+                    "ios_execution_params": "main"
                 }
             }
         ]
