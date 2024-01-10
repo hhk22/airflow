@@ -39,7 +39,7 @@ class FinanceReportOperator(BaseOperator):
                 "report_link": report_link
             })
 
-            if len(content_lst) % 3 == 2:
+            if len(content_lst) % 3 == 0:
                 send_kakao_msg(f"daily_report_{self._count}", content_lst, self._url)
                 self._count += 1
                 content_lst = []
