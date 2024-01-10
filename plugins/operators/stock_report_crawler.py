@@ -13,7 +13,7 @@ class FinanceReportOperator(BaseOperator):
         self.urlparse = urlparse(self._url)
     
     def execute(self, context):
-        date: datetime = context['data_interval_start']
+        date: datetime = context['data_interval_end']
         self._get_report_list(date=date.strftime("%Y.%m.%d")[2:])
 
     def _get_report_list(self, date):
