@@ -38,6 +38,7 @@ class FinanceReportOperator(BaseOperator):
             })
 
             if idx % 3 == 2:
+                print(content_lst)
                 send_kakao_msg(f"daily_report_{idx//3 + 1}", content_lst, self._url)
                 content_lst = []
         
