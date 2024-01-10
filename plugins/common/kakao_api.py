@@ -52,6 +52,8 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                     }
                 }
             )
+        
+        print(contents)
 
         buttons = [
             {
