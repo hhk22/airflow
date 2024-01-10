@@ -53,19 +53,8 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                     }
                 }
             )
-        
-        button_lst.append(
-            {
-                "title": "웹으로 이동",
-                "link": {
-                    "web_url": url,
-                    "mobile_web_url": url
-                }
-            }
-        )
 
-        
-            
+        print(content_lst)
 
         list_data = {
             'object_type': 'list',
@@ -76,8 +65,7 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                 'android_execution_params': 'main',
                 'ios_execution_params': 'main'
             },
-            'contents': content_lst,
-            'buttons': button_lst
+            'contents': content_lst
         }
 
         send_url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
