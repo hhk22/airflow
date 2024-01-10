@@ -9,7 +9,7 @@ from common.kakao_api import send_kakao_msg
 class FinanceReportOperator(BaseOperator):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self._url = "https://finance.naver.com/research/company_list.naver?page=1"
+        self._url = "https://finance.naver.com/research/company_list.naver?page=2"
         self.urlparse = urlparse(self._url)
     
     def execute(self, context):
