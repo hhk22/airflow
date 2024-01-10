@@ -35,10 +35,10 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
         tokens = eval(Variable.get("kakao_tokens"))
         access_token = tokens.get('access_token')
         button_lst = []
+        contents = []
 
         for item in content_lst:
-            print(item)
-            content_lst.append(
+            contents.append(
                 {
                     "title": item["title"],
                     "description": item["company"],
@@ -54,8 +54,6 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                 }
             )
 
-        print(content_lst)
-
         list_data = {
             'object_type': 'list',
             'header_title': f'{talk_title}',
@@ -65,7 +63,7 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                 'android_execution_params': 'main',
                 'ios_execution_params': 'main'
             },
-            'contents': content_lst
+            'contents': contents
         }
 
         send_url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
