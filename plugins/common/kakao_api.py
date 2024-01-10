@@ -76,8 +76,8 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
             'object_type': 'list',
             'header_title': f'{talk_title}',
             'header_link': {
-                'web_url': '',
-                'mobile_web_url': '',
+                'web_url': url,
+                'mobile_web_url': url,
                 'android_execution_params': 'main',
                 'ios_execution_params': 'main'
             },
