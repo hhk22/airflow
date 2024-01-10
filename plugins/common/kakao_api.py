@@ -37,6 +37,7 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
         button_lst = []
 
         for item in content_lst:
+            print(item)
             content_lst.append(
                 {
                     "title": item["title"],
