@@ -45,29 +45,22 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                     "image_width": 640,
                     "image_height": 640,
                     "link": {
-                        "web_url": "http://www.daum.net/contents/1",
-                        "mobile_web_url": "http://m.daum.net/contents/1",
-                        "android_execution_params": "/contents/1",
-                        "ios_execution_params": "/contents/1"
+                        "web_url": "https://www.naver.com",
+                        "mobile_web_url": "https://www.naver.com",
+                        # "web_url": item["report_link"],
+                        # "mobile_web_url": item["report_link"],
+                        "android_execution_params": "",
+                        "ios_execution_params": ""
                     }
                 }
             )
-        
-        print(contents)
 
         buttons = [
             {
-                "title": "웹으로 이동",
+                "title": "리포트 홈으로 이동",
                 "link": {
-                    "web_url": "http://www.daum.net",
-                    "mobile_web_url": "http://m.daum.net"
-                }
-            },
-            {
-                "title": "앱으로 이동",
-                "link": {
-                    "android_execution_params": "main",
-                    "ios_execution_params": "main"
+                    "web_url": url,
+                    "mobile_web_url": url
                 }
             }
         ]
@@ -76,8 +69,8 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
             'object_type': 'list',
             'header_title': f'{talk_title}',
             'header_link': {
-                'web_url': url,
-                'mobile_web_url': url,
+                'web_url': '',
+                'mobile_web_url': '',
                 'android_execution_params': 'main',
                 'ios_execution_params': 'main'
             },
