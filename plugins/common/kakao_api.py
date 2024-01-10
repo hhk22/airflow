@@ -47,8 +47,8 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                     "link": {
                         "web_url": item["report_link"],
                         "mobile_web_url": item["report_link"],
-                        "android_execution_params": "/contents/1",
-                        "ios_execution_params": "/contents/1"
+                        "android_execution_params": "",
+                        "ios_execution_params": ""
                     }
                 }
             )
