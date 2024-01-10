@@ -30,7 +30,6 @@ def _refresh_token_to_variable():
     print('variable 업데이트 완료(key: kakao_tokens)')
 
 def send_kakao_msg(talk_title: str, content_lst: list, url):
-    talk_title = talk_title + f"_{count}"
     count += 1
     try_cnt = 0
     while True:
