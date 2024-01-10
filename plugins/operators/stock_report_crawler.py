@@ -20,13 +20,26 @@ class FinanceReportOperator(BaseOperator):
         response: Response = requests.get(self.urlparse.geturl())
         bs = BeautifulSoup(response.text, "lxml")
         table_tag: Tag = bs.find("table")
-        for row in table_tag.find_all("tr"):
+
+        content_lst = []
+        for idx, row in enumerate(table_tag.find_all("tr")):
             date_tag = row.find(attrs={"class": "date"})
             if not date_tag or date_tag.text != date:
                 continue
-
+                            
             tags: list[Tag] = row.find_all("a")
             company = tags[0].text
             title = tags[1].text
             report_link = tags[2]["href"]
-            send_kakao_msg(title, { "company": company, "report_link": report_link })
+            content_lst.append({
+                "company": company,
+                "title": title,
+                "report_link": report_link
+            })
+
+            if idx % 3 == 2:
+                send_kakao_msg(f"daily_report_{idx//3 + 1}", content_lst, self._url)
+                content_lst = []
+        
+        if not content_lst:
+            send_kakao_msg(f"daily_report_{idx//3 + 1}", content_lst, self._url)

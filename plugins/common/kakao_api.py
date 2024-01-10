@@ -29,7 +29,7 @@ def _refresh_token_to_variable():
     os.system(f'airflow variables set kakao_tokens "{tokens}"')
     print('variable 업데이트 완료(key: kakao_tokens)')
 
-def send_kakao_msg(talk_title: str, content: dict):
+def send_kakao_msg(talk_title: str, content_lst: list, url):
     try_cnt = 0
     while True:
         tokens = eval(Variable.get("kakao_tokens"))
@@ -37,25 +37,35 @@ def send_kakao_msg(talk_title: str, content: dict):
         content_lst = []
         button_lst = []
 
-        for title, msg in content.items():
-            content_lst.append({
-                'title': f'{title}',
-                'description': f'{msg}',
-                'image_url': '',
-                'image_width': 40,
-                'image_height': 40,
-                'link': {
-                    'web_url': '',
-                    'mobile_web_url': ''
+        for item in content_lst:
+            content_lst.append(
+                {
+                    "title": item["title"],
+                    "description": item["company"],
+                    "image_url": "https://mud-kage.kakao.com/dn/QNvGY/btqfD0SKT9m/k4KUlb1m0dKPHxGV8WbIK1/openlink_640x640s.jpg",
+                    "image_width": 640,
+                    "image_height": 640,
+                    "link": {
+                        "web_url": item["report_link"],
+                        "mobile_web_url": item["report_link"],
+                        "android_execution_params": "/contents/1",
+                        "ios_execution_params": "/contents/1"
+                    }
                 }
-            })
-            button_lst.append({
-                'title': '',
-                'link': {
-                    'web_url': '',
-                    'mobile_web_url': ''
+            )
+        
+        button_lst.append(
+            {
+                "title": "웹으로 이동",
+                "link": {
+                    "web_url": url,
+                    "mobile_web_url": url
                 }
-            })
+            }
+        )
+
+        
+            
 
         list_data = {
             'object_type': 'list',
