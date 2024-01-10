@@ -34,7 +34,6 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
     while True:
         tokens = eval(Variable.get("kakao_tokens"))
         access_token = tokens.get('access_token')
-        content_lst = []
         button_lst = []
 
         for item in content_lst:
