@@ -29,8 +29,7 @@ def _refresh_token_to_variable():
     os.system(f'airflow variables set kakao_tokens "{tokens}"')
     print('variable 업데이트 완료(key: kakao_tokens)')
 
-def send_kakao_msg(talk_title: str, content_lst: list, url):
-    count += 1
+def send_kakao_msg(talk_title: str, content_lst: list, url):    
     try_cnt = 0
     while True:
         tokens = eval(Variable.get("kakao_tokens"))
