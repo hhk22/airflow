@@ -12,7 +12,8 @@ class FinanceReportOperator(BaseOperator):
         self.urlparse = urlparse(self._url)
     
     def execute(self, context):
-        self._get_report_list()
+        print(context)
+        # self._get_report_list()
 
     def _get_report_list(self, date = ""):
         response: Response = requests.get(self.urlparse.geturl())
