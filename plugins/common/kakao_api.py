@@ -30,11 +30,12 @@ def _refresh_token_to_variable():
     print('variable 업데이트 완료(key: kakao_tokens)')
 
 def send_kakao_msg(talk_title: str, content_lst: list, url):
+    talk_title = talk_title + f"_{count}"
+    count += 1
     try_cnt = 0
     while True:
         tokens = eval(Variable.get("kakao_tokens"))
         access_token = tokens.get('access_token')
-        button_lst = []
         contents = []
 
         for item in content_lst:
@@ -54,6 +55,16 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                 }
             )
 
+        buttons = [
+            {
+                "title": "리포트 홈으로 이동",
+                "link": {
+                    "web_url": url,
+                    "mobile_web_url": url
+                }
+            }
+        ]
+
         list_data = {
             'object_type': 'list',
             'header_title': f'{talk_title}',
@@ -63,7 +74,8 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                 'android_execution_params': 'main',
                 'ios_execution_params': 'main'
             },
-            'contents': contents
+            'contents': contents,
+            'buttons': buttons
         }
 
         send_url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"

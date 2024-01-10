@@ -11,6 +11,7 @@ class FinanceReportOperator(BaseOperator):
         super().__init__(**kwargs)
         self._url = "https://finance.naver.com/research/company_list.naver?page=2"
         self.urlparse = urlparse(self._url)
+        self._count = 1
     
     def execute(self, context):
         date: datetime = context['data_interval_end']
@@ -38,8 +39,10 @@ class FinanceReportOperator(BaseOperator):
             })
 
             if idx % 3 == 2:
-                send_kakao_msg(f"daily_report_{idx//3 + 1}", content_lst, self._url)
+                send_kakao_msg(f"daily_report_{self._count}", content_lst, self._url)
+                self._count += 1
                 content_lst = []
         
         if not content_lst:
-            send_kakao_msg(f"daily_report_{idx//3 + 1}", content_lst, self._url)
+            send_kakao_msg(f"daily_report_{self._count}", content_lst, self._url)
+            self._count += 1
