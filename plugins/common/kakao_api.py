@@ -66,20 +66,21 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
         ]
 
         list_data = {
-            'object_type': 'list',
-            'header_title': f'{talk_title}',
-            'header_link': {
-                'web_url': '',
-                'mobile_web_url': '',
-                'android_execution_params': 'main',
-                'ios_execution_params': 'main'
+            "object_type": "list",
+            "header_title": f"{talk_title}",
+            "header_link": {
+                "web_url": "http://www.daum.net",
+                "mobile_web_url": "http://m.daum.net",
+                "android_execution_params": "main",
+                "ios_execution_params": "main"
             },
-            'contents': contents,
-            'buttons': buttons
+            "contents": contents,
+            "buttons": buttons
         }
 
         send_url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
         headers = {
+            "Content-Type": "application/x-www-form-urlencoded",
             "Authorization": f'Bearer {access_token}'
         }
 
