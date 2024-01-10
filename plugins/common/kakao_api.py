@@ -45,10 +45,10 @@ def send_kakao_msg(talk_title: str, content_lst: list, url):
                     "image_width": 640,
                     "image_height": 640,
                     "link": {
-                        "web_url": item["report_link"],
-                        "mobile_web_url": item["report_link"],
-                        "android_execution_params": "",
-                        "ios_execution_params": ""
+                        "web_url": "http://www.daum.net/contents/1",
+                        "mobile_web_url": "http://m.daum.net/contents/1",
+                        "android_execution_params": "/contents/1",
+                        "ios_execution_params": "/contents/1"
                     }
                 }
             )
