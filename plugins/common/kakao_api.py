@@ -31,6 +31,7 @@ def _refresh_token_to_variable():
 
 def send_kakao_msg(talk_title: str, content_lst: list, url):    
     try_cnt = 0
+    print(tokens.get('access_token'))
     while True:
         tokens = eval(Variable.get("kakao_tokens"))
         access_token = tokens.get('access_token')
